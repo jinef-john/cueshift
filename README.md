@@ -47,16 +47,13 @@ else console.log(result.report.reason);
 
 ## Results
 
-Three anime episodes whose subtitles drift in steps of 10–32 s, compared with [alass](https://github.com/kaegi/alass) and [ffsubsync](https://github.com/smacke/ffsubsync):
+Two anime episodes whose subtitles drift in steps of 10–32 s, compared with [alass](https://github.com/kaegi/alass) and [ffsubsync](https://github.com/smacke/ffsubsync):
 
 | Episode | Tool | Median error | Lines within 1 s |
 |---|---|---|---|
 | s2e7 | cueshift | 0.00 s | 91% |
 | | alass | 0.01 s | 91% |
 | | ffsubsync | 8.04 s | 34% |
-| s2e8 | cueshift | 0.05 s | 79% |
-| | alass | 2.65 s | 23% |
-| | ffsubsync | 0.05 s | 93% |
 | s2e9 | cueshift | 0.03 s | 98% |
 | | alass | 3.06 s | 18% |
 | | ffsubsync | 7.84 s | 40% |
