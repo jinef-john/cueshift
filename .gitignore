@@ -1,0 +1,4 @@
+node_modules/
+*.speech
+*.pcm
+*.synced.srt

@@ -1,0 +1,11 @@
+{
+  "name": "cueshift",
+  "version": "0.1.0",
+  "description": "Puts subtitles back in time with the speech in a video, including mid-file steps and frame-rate drift.",
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "bin": { "cueshift": "bin/cueshift.js" },
+  "files": ["bin", "src", "tools"],
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test test/*.test.js" }
+}
