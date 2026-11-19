@@ -96,7 +96,7 @@ function scoreWindows(cues, energy, scores, tag, endLimit) {
     let heard = 0;
     for (let f = from; f < to; f += 1) if (Number.isFinite(energy[f])) heard += 1;
     if (heard < MIN_HEARD_S / FRAME_S) continue;
-    const key = `v2:${tag}:${index}:${heard}`;
+    const key = `cueshift:${tag}:${index}:${heard}`;
     let scored = scores?.get(key);
     if (scored === undefined) {
       scored = scoreWindow(energy, on, from, to);
@@ -371,10 +371,10 @@ function alignCues(cues, energy, scores, options = {}) {
   const endLimit = Number(options.endLimit) || 0;
   const windows = scoreWindows(cues, energy, scores, "1", endLimit);
   if (!windows.length) {
-    return { shifts: null, report: { matcher: "v2", mode: "none", confident: false, coverage: 0, score: 0, windows: [], reason: "not enough audio heard yet" } };
+    return { shifts: null, report: { matcher: "cueshift", mode: "none", confident: false, coverage: 0, score: 0, windows: [], reason: "not enough audio heard yet" } };
   }
   const steps = alignSteps(cues, energy, windows);
-  steps.report.matcher = "v2";
+  steps.report.matcher = "cueshift";
 
   const heardSpan = windows[windows.length - 1].to - windows[0].from;
   if (heardSpan >= DRIFT_MIN_SPAN_S && (!steps.shifts || steps.report.coverage < 0.5)) {
@@ -384,7 +384,7 @@ function alignCues(cues, energy, scores, options = {}) {
         shifts: cues.map((cue) => Math.round((cue.start * (drift.ratio - 1) + drift.offset) * 100) / 100),
         scale: drift.ratio,
         report: {
-          matcher: "v2",
+          matcher: "cueshift",
           mode: "drift",
           confident: true,
           ratio: Math.round(drift.ratio * 100000) / 100000,
