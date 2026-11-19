@@ -47,7 +47,7 @@ else console.log(result.report.reason);
 
 ## Results
 
-Three anime episodes whose subtitles drift in steps of 10–32 s:
+Three anime episodes whose subtitles drift in steps of 10–32 s, compared with [alass](https://github.com/kaegi/alass) and [ffsubsync](https://github.com/smacke/ffsubsync):
 
 | Episode | Tool | Median error | Lines within 1 s |
 |---|---|---|---|
